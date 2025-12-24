@@ -72,3 +72,150 @@ const departments = {
 }
 
 console.log(departments);
+
+console.log("OPDRACHT 1");
+// console.log("1a.", "De afdeling Sales heeft",departments.sales.numberOfEmployees,  "medewerkers");
+// console.log("1b.", "Marketing is een leuke afdeling om te werken.", departments.marketing.description);
+// console.log("1c.", "De afdeling Customer Service heeft", departments["customer-service"].numberOfEmployees , "medewerkers");
+// console.log("1d.", "Sales is een uitdagende afdeling om te werken als Verkoopmanager.", departments.sales.jobs[1].description);
+
+console.log("OPDRACHT 2");
+// let userInput = prompt('Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]');
+// console.log(userInput);
+// console.log("2a.", userInput);
+//
+// switch (userInput) {
+//     case 'marketing':
+//         console.log("2b.", "Je koos marketing", departments.marketing.description);
+//         break;
+//     case 'sales':
+//         console.log("2b.", "Je koos sales", departments.sales.description);
+//         break;
+//     case 'customer-service':
+//         console.log("2b.", "Je koos customer-service", departments["customer-service"].description);
+//         break;
+//     default:
+//         console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.")
+// }
+
+console.log("OPDRACHT 3");
+// let var1 = "";
+//
+// for (let i = 0; i < departments.marketing.jobs.length ; i++) {
+//     console.log(i, ":", departments.marketing.jobs[i].title);
+// }
+
+// let userInput = prompt('Voer een getal tussen 0 en 3 in.\n' + "0: " + departments.marketing.jobs[0].title + "\n" + "1: " + departments.marketing.jobs[1].title + "\n" + "2: " + departments.marketing.jobs[2].title + "\n" + "3: " + departments.marketing.jobs[3].title + "\n")
+
+// switch (userInput) {
+//     case ("0"): {
+//         console.log("Je koos", departments.marketing.jobs[0].title + ". Een uitdagende rol! " + departments.marketing.jobs[0].description);
+//         break;
+//     }
+//     case ("1"): {
+//         console.log("Je koos", departments.marketing.jobs[1].title + ". Een uitdagende rol! " + departments.marketing.jobs[1].description);
+//         break;
+//     }
+//     case ("2"): {
+//         console.log("Je koos", departments.marketing.jobs[2].title + ". Een uitdagende rol! " + departments.marketing.jobs[2].description);
+//         break;
+//     }
+//     case ("3"): {
+//         console.log("Je koos", departments.marketing.jobs[3].title + ". Een uitdagende rol! " + departments.marketing.jobs[3].description);
+//         break;
+//     }
+//     default: {
+//         console.log("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.")
+//         break;
+//     }
+// }
+
+console.log("OPDRACHT 4");
+let userInput = prompt('Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]');
+console.log(userInput);
+let afdeling = "";
+
+if (userInput != null) {
+    switch (userInput.toLowerCase()) {
+        case 'marketing':
+            afdeling = "marketing";
+            console.log(afdeling, departments[afdeling].description);
+            console.log(userInput, "is een leuke afdeling voor te werken.", "Er werken op dit moment", departments[afdeling].numberOfEmployees, "medewerkers.");
+            pickJob(afdeling);
+            break;
+        case 'sales':
+            afdeling = "sales";
+            console.log(afdeling, departments[afdeling].description);
+            console.log(userInput, "is een leuke afdeling voor te werken.", "Er werken op dit moment", departments[afdeling].numberOfEmployees, "medewerkers.");
+            pickJob(afdeling);
+            break;
+        case 'customer-service':
+            afdeling = "customer-service";
+            console.log(afdeling, departments[afdeling].description);
+            console.log(userInput, "is een leuke afdeling voor te werken.", "Er werken op dit moment", departments[afdeling].numberOfEmployees, "medewerkers.");
+            pickJob(afdeling);
+            break;
+        default:
+            console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.");
+            break;
+    }
+}
+
+`Gekozen afdeling: ${afdeling}
+
+Beschikbare jobs:
+0: ${departments[afdeling].jobs[0].title}
+1: ${departments[afdeling].jobs[1].title}
+2: ${departments[afdeling].jobs[2].title}
+3: ${departments[afdeling].jobs[3].title}
+
+Voer een getal tussen 0 en 3 in.`
+
+// FUNCTION WITH TEMPLATE LITERALS
+function pickJob(afdeling) {
+    let inputJob = prompt(`Gekozen afdeling: ${afdeling}
+
+Beschikbare jobs:
+0: ${departments[afdeling].jobs[0].title}
+1: ${departments[afdeling].jobs[1].title}
+2: ${departments[afdeling].jobs[2].title}
+3: ${departments[afdeling].jobs[3].title}
+
+Voer een getal tussen 0 en 3 in.`)
+
+    switch (inputJob) {
+        case ("0"): {
+            console.log("Je koos", departments[afdeling].jobs[0].title + ". Een uitdagende rol! " + departments[afdeling].jobs[0].description);
+            makePage(afdeling,inputJob);
+            break;
+        }
+        case ("1"): {
+            console.log("Je koos", departments[afdeling].jobs[1].title + ". Een uitdagende rol! " + departments[afdeling].jobs[1].description);
+            makePage(afdeling,inputJob);
+            break;
+        }
+        case ("2"): {
+            console.log("Je koos", departments[afdeling].jobs[2].title + ". Een uitdagende rol! " + departments[afdeling].jobs[2].description);
+            makePage(afdeling,inputJob);
+            break;
+        }
+        case ("3"): {
+            console.log("Je koos", departments[afdeling].jobs[3].title + ". Een uitdagende rol! " + departments[afdeling].jobs[3].description);
+            makePage(afdeling,inputJob);
+            break;
+        }
+        default: {
+            console.log("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.")
+            document.getElementById("role-title").textContent = "ERROR!!!"
+            document.getElementById("error-message").textContent = "Ongeldige keuze. Probeer het opnieuw door de pagina te verversen."
+            break;
+        }
+    }
+}
+
+// HELPER FUNCTION TO POPULATE WEBPAGE
+function makePage(afdeling, inputJob) {
+    document.getElementById('role-title').textContent = departments[afdeling].jobs[inputJob].title;
+    document.getElementById('department-description').textContent = departments[afdeling].description;
+    document.getElementById('role-description').textContent = departments[afdeling].jobs[inputJob].description;
+}
