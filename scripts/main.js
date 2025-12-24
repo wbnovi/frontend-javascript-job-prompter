@@ -161,14 +161,27 @@ if (userInput != null) {
     }
 }
 
+`Gekozen afdeling: ${afdeling}
+
+Beschikbare jobs:
+0: ${departments[afdeling].jobs[0].title}
+1: ${departments[afdeling].jobs[1].title}
+2: ${departments[afdeling].jobs[2].title}
+3: ${departments[afdeling].jobs[3].title}
+
+Voer een getal tussen 0 en 3 in.`
+
+// FUNCTION WITH TEMPLATE LITERALS
 function pickJob(afdeling) {
-    let inputJob = prompt("Gekozen afdeling: " + afdeling
-        + '\n\nBeschikbare jobs:\n'
-        + "0: " + departments[afdeling].jobs[0].title + "\n"
-        + "1: " + departments[afdeling].jobs[1].title + "\n"
-        + "2: " + departments[afdeling].jobs[2].title + "\n"
-        + "3: " + departments[afdeling].jobs[3].title + "\n"
-        + '\n\nVoer een getal tussen 0 en 3 in.\n')
+    let inputJob = prompt(`Gekozen afdeling: ${afdeling}
+
+Beschikbare jobs:
+0: ${departments[afdeling].jobs[0].title}
+1: ${departments[afdeling].jobs[1].title}
+2: ${departments[afdeling].jobs[2].title}
+3: ${departments[afdeling].jobs[3].title}
+
+Voer een getal tussen 0 en 3 in.`)
 
     switch (inputJob) {
         case ("0"): {
@@ -200,6 +213,7 @@ function pickJob(afdeling) {
     }
 }
 
+// HELPER FUNCTION TO POPULATE WEBPAGE
 function makePage(afdeling, inputJob) {
     document.getElementById('role-title').textContent = departments[afdeling].jobs[inputJob].title;
     document.getElementById('department-description').textContent = departments[afdeling].description;
